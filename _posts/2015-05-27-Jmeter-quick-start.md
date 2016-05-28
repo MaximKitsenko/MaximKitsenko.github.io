@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JMeter quick start
+title: JMeter introduction
 ---
 
 During the software development process we often facing with need to test something. Depending on your goals and testing objects we choose the most appropriate testing tool.
