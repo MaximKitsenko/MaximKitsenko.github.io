@@ -19,3 +19,9 @@ In short it works this way: Jmeter sends command to update, after that it pulls 
 I have created two requests with headers and body contains user tokens. The first one 'SyncSale' - should update sale, another one - 'GetSaleStatus' pulls data from the server. After we had received response from the 2nd request, we should check that we receive correct data (also we can check response time, body content and so on). 
 
 ![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/1.png)
+
+
+'Jmeter' sends data very fast, essentially server can't process data in milliseconds and we should add delay between 1st and 2nd request. For this moment we have very simple test (send request -> make sure that response comes within specified time and contains specified data -> wait -> send another request-> make sure that response comes within specified time and contains specified data). We can configure 'Jmeter' to run this test forever and send check result to some place (i had been configuring graphite to show info from the test). 
+
+![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/3.png)
+
