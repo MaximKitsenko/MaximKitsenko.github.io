@@ -20,8 +20,7 @@ I have created two requests with headers and body contains user tokens. The firs
 
 ![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/1.png)
 
-
-'Jmeter' sends data very fast, essentially server can't process data in milliseconds and we should add delay between 1st and 2nd request. For this moment we have very simple test (send request -> make sure that response comes within specified time and contains specified data -> wait -> send another request-> make sure that response comes within specified time and contains specified data). We can configure 'Jmeter' to run this test forever and send check result to some place (i had been configuring graphite to show info from the test). 
+Jmeter sends data very fast, essentially server can't process data in milliseconds and we should add delay between 1st and 2nd request. For this moment we have very simple test (send request -> make sure that response comes within specified time and contains specified data -> wait -> send another request-> make sure that response comes within specified time and contains specified data). We can configure Jmeter to run this test forever and send check result to some place (i had been configuring graphite to show info from the test). 
 
 ![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/3.png)
 
