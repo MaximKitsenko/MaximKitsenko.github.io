@@ -1,10 +1,22 @@
 ---
 layout: post
-title: You're up and running!
+title: JMeter quick start!
 ---
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+During the software development process we often facing with need to test something. Depending on your goals and testing objects we choose the most appropriate testing tool.
+Today i want to show you what is Jmeter and how it can be used. This article doesn't cover all 'Jmeter' features and testing techniques. It is just extract of useful concepts and approaches. Lets start.
 
-![_config.yml]({{ site.baseurl }}/images/config.png)
+The problem.
+Sometimes queues on the server are overloaded and users should wait a lot of time to see when their commands will be processed. Since the issue occurs only when the system is overloaded, after bug-fix will be published, we need to 
 
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
+simulate high loading for testing purpose. The question is 'How easily emulate overloading ?'. The second question is 'How to check that user's commands will be processed in time?'.
+
+Solution
+There are a lot of ways to emulate high user activity to overload the system. Since system provides ability to import data we can import large files, use curl to send requests, use API which provides an easy way to communicate with the 
+
+system   or something else. JMeter also can be used to for these goals. We will use it to send thousands of API requests. You can ask why to use 'Jmeter' ? The quick answer is: Jmeter  is very powerful tool that provides very easy and 
+
+configurable way to do it. 
+
+
+#![_config.yml]({{ site.baseurl }}/images/config.png)
