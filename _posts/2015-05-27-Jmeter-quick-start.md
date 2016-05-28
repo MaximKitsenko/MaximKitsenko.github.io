@@ -15,4 +15,4 @@ There are a lot of ways to emulate high user activity to overload the system. Si
 In short it works this way:
 I have created two requests with headers and body contains user tokens. The first one 'SyncSale' - should update sale, another one - 'GetSaleStatus' pulls data from the server. After we had received response from the 2nd request, we should check that we receive correct data (also we can check response time, body content and so on). 
 
-#![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/1.png)
+![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/1.png)
