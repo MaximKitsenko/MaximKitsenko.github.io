@@ -37,7 +37,7 @@ At this moment we have test that sequentially updates sale (or many sales), wait
 
 We can tell to Jmeter to execute one test many times in parallel within specified time range or send these requests in many threads many times or even send them endlessly. For simplicity, i will configure current sample to run in 50 threads.
 
-![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/3.png)
+![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/5.png)
 
 As we did with loops we can configure our requests to be unique for one thread or be the same for all threads. Since from Jmeter point of view, each of the threads is a user - we can provide unique credentials for each of the threads by specifying them in simple text files, or leave credentials hard coded for all threads.
 
