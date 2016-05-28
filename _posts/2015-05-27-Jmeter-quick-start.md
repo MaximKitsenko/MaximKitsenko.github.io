@@ -29,6 +29,10 @@ We will add loop to send 'SyncSale' request many times. Each time we will change
 
 ![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/4.png)
 
+Tests result can be visualized. We can configurate our checks. For instance we can configure Jmeter to fail all responses except 200, or check body length or even body content or response time.
+
+![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/7.png)
+
 At this moment we have test that sequentially updates sale (or many sales), waits and checks that server sends responses with correct data. As you can notice there is no parallelization and this test still can't overload server with requests that we send sequentially.
 
 We can tell to Jmeter to execute one test many times in parallel within specified time range or send these requests in many threads many times or even send them endlessly. For simplicity, i will configure current sample to run in 50 threads.
