@@ -24,3 +24,8 @@ Jmeter sends data very fast, essentially server can't process data in millisecon
 
 ![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/3.png)
 
+But 1 request can't overload our server and we should increase requests quantity. There are a lot of ways to do it (Jmeter is very flexible tool =) ). We can add requests in same manner as we did before. This way requests will be started sequentially, we can send requests in a loop, also we can start sending requests in parallel or combine all these methods.
+We will add loop to send 'SyncSale' request many times. Each time we will change request body. For example we can send first request with saleItemPrice = 1, next request can be saleItemPrice=2 and so on. Lets assume we want to send 10 commands, so the last request will have saleItemPrice = 10 in the request's body. When we call GetSaleStatus we should check that response contains salePrice==10. You can change logic and add some variations for this test. For example instead of changing item's price for 1 sale you can change sale id in each request and set saleItemPrice to random number. Or you can create loop inside another loop. In this case you can update X sales Y times. You can check each sale from the loop by 'GetSaleStatus' or only check the last sale. The way you will choose depends from your imagination and goals.
+
+
+
