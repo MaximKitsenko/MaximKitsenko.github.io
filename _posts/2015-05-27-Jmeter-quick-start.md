@@ -8,8 +8,8 @@ Today i want to show  *Jmeter* and how it can be used. This article doesn't cove
 
 **The problem**.
 Sometimes queues in our the server are overloaded and users should wait a lot of time to see when their commands will be processed. Since the issue occurs only when the system is overloaded, after bug-fix will be published, we need to simulate overloading for testing purpose. Here occurs two questions:
- *'How to emulate overloading easily ?'
- *'How to check that user's commands will be processed in time?'.
+ 1. 'How to emulate overloading easily ?'
+ 2. 'How to check that user's commands will be processed in time?'.
 
 **Solution**
 There are a lot of ways to emulate high user activity to overload the system. Since system provides ability to import data we can import large files, use curl to send requests, use API which provides an easy way to communicate with the system or something else. JMeter also can be used to for these goals. In this article we will use it to send thousands of API requests. You can ask why to use Jmeter ? The quick answer is: Jmeter is very powerful tool that provides very easy and configurable way to do many kinds of testing. 
