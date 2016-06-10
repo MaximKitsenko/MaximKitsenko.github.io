@@ -50,5 +50,7 @@ We can visualize out tests. Jmeter provides few graphs to view tests results.
 
 Also i configured Graphite to show our tests in real-time 
 
+![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/9.png)
+
 
 
