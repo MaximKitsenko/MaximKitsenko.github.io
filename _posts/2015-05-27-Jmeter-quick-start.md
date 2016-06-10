@@ -4,25 +4,27 @@ title: JMeter introduction
 ---
 
 During the software development process we often facing with need to test something. Depending on your goals and testing objects we choose the most appropriate testing tool.
-Today i want to show  *Jmeter* and how it can be used. This article doesn't cover all Jmeter features and testing techniques. It is just extract of useful concepts and approaches. Lets start.
+Today i want to show  *Jmeter* and how it can be used. This article doesn't cover all Jmeter features and testing techniques. This is just brief description of Jmeter functionality, the goal of this article is to introduce JMeter.
 
 **The problem**.
-Sometimes queues on the server are overloaded and users should wait a lot of time to see when their commands will be processed. Since the issue occurs only when the system is overloaded, after bug-fix will be published, we need to simulate overloading for testing purpose. The question is 'How easily emulate overloading ?'. The second question is 'How to check that user's commands will be processed in time?'.
+Sometimes queues in our the server are overloaded and users should wait a lot of time to see when their commands will be processed. Since the issue occurs only when the system is overloaded, after bug-fix will be published, we need to simulate overloading for testing purpose. Here occurs two questions:
+ *'How to emulate overloading easily ?'
+ *'How to check that user's commands will be processed in time?'.
 
 **Solution**
-There are a lot of ways to emulate high user activity to overload the system. Since system provides ability to import data we can import large files, use curl to send requests, use API which provides an easy way to communicate with the system or something else. JMeter also can be used to for these goals. We will use it to send thousands of API requests. You can ask why to use Jmeter ? The quick answer is: Jmeter is very powerful tool that provides very easy and configurable way to do it. 
+There are a lot of ways to emulate high user activity to overload the system. Since system provides ability to import data we can import large files, use curl to send requests, use API which provides an easy way to communicate with the system or something else. JMeter also can be used to for these goals. In this article we will use it to send thousands of API requests. You can ask why to use Jmeter ? The quick answer is: Jmeter is very powerful tool that provides very easy and configurable way to do many kinds of testing. 
 
 **Simple test in Jmeter**
 Jmeter is server performance testing tool, supports multithreading, it may be used to simulate a heavy load, analyse test results, make a graphical analysis of performance, test your server behavior under heavy concurrent load. 
-For our goals we need some script that will work this way:  send command to update, after that pull updated data to check that update was happened.
+For our goals we need some functional test that will work this way:  send command to update, after that pull updated data to check that update was happened.
 
 ![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/2.png)
 
-I have created two requests with headers and body contains user tokens. The first one 'SyncSale' - should update sale, another one - 'GetSaleStatus' pulls data from the server. After we had received response from the 2nd request, we should check that we receive correct data (also we can check response time, body content and so on). 
+I have created two requests in Jmeter and configured them (Each of these requests has parameters: headers, body, url etc.). The first one 'SyncSale' - should update sale, another one - 'GetSaleStatus' pulls data from the server. After we had received response from the 2nd request, we should check that we receive correct data (also we can check response time, body content and so on). 
 
 ![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/1.png)
 
-Jmeter sends data very fast, essentially server can't process data in milliseconds and we should add delay between 1st and 2nd request. For this moment we have very simple test (send request -> make sure that response comes within specified time and contains specified data -> wait -> send another request-> make sure that response comes within specified time and contains specified data). We can configure Jmeter to run this test forever and send check result to some place (i had been configuring graphite to show info from the test). 
+Jmeter sends data very fast, obviously server can't process data in milliseconds and we should add delay between 1st and 2nd request. For this moment we have very simple test (send request -> make sure that response comes within specified time and contains specified data -> wait -> send another request-> make sure that response comes within specified time and contains specified data). We can configure Jmeter to run this test forever and send check result to some place (i had been configuring graphite to show info from the test). 
 
 ![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/3.png)
 
@@ -37,8 +39,7 @@ Tests result can be visualized. We can configurate our checks. For instance we c
 ![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/7.png)
 
 At this moment we have test that sequentially updates sale (or many sales), waits and checks that server sends responses with correct data. As you can notice there is no parallelization and this test still can't overload server with requests that we send sequentially.
-
-We can tell to Jmeter to execute one test many times in parallel within specified time range or send these requests in many threads many times or even send them endlessly. For simplicity, i will configure current sample to run in 50 threads.
+Fortunately we can configurate Jmeter to execute one test many times in parallel within specified time range or send these requests in many threads many times or even send them endlessly. For simplicity, i will configure current sample to run in 50 threads.
 
 ![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/5.png)
 
