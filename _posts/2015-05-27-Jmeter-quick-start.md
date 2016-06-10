@@ -39,9 +39,7 @@ Tests result can be visualized. We can configurate our checks. For instance we c
 ![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/7.png)
 
 At this moment we have test that sequentially updates sale (or many sales), waits and checks that server sends responses with correct data. As you can notice there is no parallelization and this test still can't overload server with requests that we send sequentially.
-Fortunately we can configurate Jmeter to execute one test many times in parallel within specified time range or send these requests in many threads many times or even send them endlessly. For simplicity, i will configure current sample to run in 50 threads.
-
-![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/5.png)
+Fortunately we can configurate Jmeter to execute one test many times in parallel within specified time range or send these requests in many threads many times or even send them endlessly.
 
 As we did with loops we can configure our requests to be unique for one thread or be the same for all threads. Since from Jmeter point of view, each of the threads is a user - we can provide unique credentials, delays, request headers, etc. for each of the threads(we can psecify these parameters in simple text files, or leave hard coded, or generate randomly for all threads).
 
