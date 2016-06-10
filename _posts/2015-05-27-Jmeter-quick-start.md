@@ -12,7 +12,9 @@ Sometimes queues on the server are overloaded and users should wait a lot of tim
 **Solution**
 There are a lot of ways to emulate high user activity to overload the system. Since system provides ability to import data we can import large files, use curl to send requests, use API which provides an easy way to communicate with the system or something else. JMeter also can be used to for these goals. We will use it to send thousands of API requests. You can ask why to use Jmeter ? The quick answer is: Jmeter is very powerful tool that provides very easy and configurable way to do it. 
 
-Jmeter is server performance testing tool, supports multithreading, it may be used to simulate a heavy load, analyse test results, make a graphical analysis of performance, test your server behavior under heavy concurrent load. For aour goals we need some script that will work this way:  sendscommand to update, after that pull updated data to check that update was happened.
+**Simple test in Jmeter**
+Jmeter is server performance testing tool, supports multithreading, it may be used to simulate a heavy load, analyse test results, make a graphical analysis of performance, test your server behavior under heavy concurrent load. 
+For our goals we need some script that will work this way:  send command to update, after that pull updated data to check that update was happened.
 
 ![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/2.png)
 
@@ -24,6 +26,7 @@ Jmeter sends data very fast, essentially server can't process data in millisecon
 
 ![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/3.png)
 
+**Test grows**
 But 1 request can't overload our server and we should increase requests quantity. There are a lot of ways to do it (Jmeter is very flexible tool =) ). We can add requests in same manner as we did before. This way requests will be started sequentially, we can send requests in a loop, also we can start sending requests in parallel or combine all these methods (like i will do below).
 We will add loop to send 'SyncSale' request many times. Each time we will change request body. For example we can send first request with saleItemPrice = 1, next request can be saleItemPrice=2 and so on. Lets assume we want to send 10 commands, so the last request will have saleItemPrice = 10 in the request's body. When we call GetSaleStatus we should check that response contains salePrice==10. You can change logic and add some variations for this test. For example instead of changing item's price for 1 sale you can change sale id in each request and set saleItemPrice to random number. Or you can create loop inside another loop. In this case you can update X sales Y times. You can check each sale from the loop by 'GetSaleStatus' or only check the last sale. The way you will choose depends from your imagination and goals.
 
@@ -39,5 +42,14 @@ We can tell to Jmeter to execute one test many times in parallel within specifie
 
 ![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/5.png)
 
-As we did with loops we can configure our requests to be unique for one thread or be the same for all threads. Since from Jmeter point of view, each of the threads is a user - we can provide unique credentials for each of the threads by specifying them in simple text files, or leave credentials hard coded for all threads.
+As we did with loops we can configure our requests to be unique for one thread or be the same for all threads. Since from Jmeter point of view, each of the threads is a user - we can provide unique credentials, delays, request headers, etc. for each of the threads(we can psecify these parameters in simple text files, or leave hard coded, or generate randomly for all threads).
+
+**Test results**
+We can visualize out tests. Jmeter provides few graphs to view tests results.
+
+![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/8.png)
+
+Also i configured Graphite to show our tests in real-time 
+
+
 
