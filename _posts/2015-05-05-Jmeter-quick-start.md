@@ -19,10 +19,8 @@ There are a lot of tools capable to emulate high user activity and make function
 **Simple test in Jmeter**
 For our goals we need some functional test that will work this way:  
 
-	1. Send command to update;
-	
-	2. Pull updated data;
-	
+	1. Send command to update;	
+	2. Pull updated data;	
 	3. Check that update was happened.
 
 
