@@ -8,7 +8,9 @@ Today i want to show  *Jmeter* and how it can be used. This article doesn't cove
 
 **The problem**.
 Sometimes queues in our the server are overloaded and users should wait a lot of time to see when their commands will be processed. Since the issue occurs only when the system is overloaded, after bug-fix will be published, we need to simulate overloading for testing purpose. Here occurs two questions:
+
  1. 'How to emulate overloading easily ?'
+ 
  2. 'How to check that user's commands will be processed in time?'.
 
 **Solution**
