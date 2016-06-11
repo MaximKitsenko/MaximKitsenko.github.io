@@ -43,11 +43,11 @@ Tests result can be visualized. For instance we can configure Jmeter to fail all
 
 ![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/7.png)
 
-Graphs to view tests results.
+Graphs to view tests results (latency):
 
 ![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/8.png)
 
-Jmeter can be configured to send test results to some place in real-time. For example i configured graphite to show test results.
+Jmeter can be configured to send test results to some place in real-time. For example i configured graphite to show count of passed and failed tests:
 
 ![_config.yml]({{ site.baseurl }}/images/2015-05-27-Jmeter-quick-start/9.png)
 
