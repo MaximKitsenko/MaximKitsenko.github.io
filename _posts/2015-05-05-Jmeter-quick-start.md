@@ -13,7 +13,17 @@ Sometimes queues in our the server are overloaded and users should wait a lot of
 2. How to check that user's commands will be processed in time?.
 
 **Solution.**
-There are a lot of tools capable to emulate high user activity and make functional testing. I want to consider Jmeter In this article. Jmeter is server performance testing tool, supports multithreading, it may be used to simulate a heavy load, analyse test results, make a graphical analysis of performance, test your server behavior under heavy concurrent load. Also Jmeter provides very easy and configurable way to do many kinds of testing. 
+There are a lot of tools capable to emulate high user activity and make functional testing. I want to consider one og the - Jmeter. 
+
+**What is Jmeter?**
+Jmeter is free and open source server performance testing tool. Written on Java (Swing Java API) it supports multithreading, it may be used to simulate a heavy load, analyse test results, make a graphical analysis of performance, test your server behavior under heavy concurrent load. Also Jmeter provides very easy and configurable way to do many kinds of testing. With help of Jmeter you can make some kinds of testing:
+
+1. Load tests (system behavior under extreme conditions)
+2. Performance tests (how the system responds and how is its stability for a specific workload)
+3. Stress tests (break or overwhelm the system by loading more resources)
+4. Functional tests (system functional requirements)
+
+Basically, using JMeter consists of the creation, configuration, execution of test and the analysis of their results. 
 
 **Simple test in Jmeter.**
 For our goals we need some functional test that will work this way:  Send command to update -> Pull updated data -> Check that update was happened.
