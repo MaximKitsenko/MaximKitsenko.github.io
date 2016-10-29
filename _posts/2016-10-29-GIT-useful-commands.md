@@ -7,4 +7,4 @@ For those who uses Git (including me) i started to collect useful commands. In t
 
 **Selectively pull file from stash**
 
-```git checkout stash@{0} -- C:/projects/skuvault/src/SkuVault.Infrastructure/Utils/EventStorageSettingsProvider.cs```
+```git checkout stash@{0} -- C:/projects/skuvault/src/Infrastructure/StorageSettingsProvider.cs```
