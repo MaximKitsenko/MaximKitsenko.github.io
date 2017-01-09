@@ -11,7 +11,7 @@ For those who uses Git (including me) i started to collect useful commands. In t
 ```$ git stash -u```
 
 
-Selectively **pull** file from stash:
+Selectively **checkout** file from stash:
 
 ```$ git checkout stash@{0} -- C:/projects/skuvault/src/Infrastructure/StorageSettingsProvider.cs```
 
