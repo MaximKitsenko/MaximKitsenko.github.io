@@ -34,3 +34,8 @@ Apply **patch**:
 **Find** all commits containing specified string in file:
 
 ```$ git log -S "magentoService.GetProductsAsync" --oneline```
+
+
+**Alias** adding:
+
+```$ git config --global alias.co checkout``` 
