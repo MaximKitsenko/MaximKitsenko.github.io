@@ -8,7 +8,7 @@ This program is a small calculator, that can just divide numbers.
 
 void Main()
 {	
-	var thousand = 1_000;							//Numeric literal
+	var thousand = 1_000;	//Numeric literal
 	var binary = 0b0000_0000_0000_0000_0000_1111;	//Numeric literal
 	
 	ParseTwoStrings("8", "2", "3","Div", out int var1, out int var2, out _, out CalcOperation operation);	//Out variables and discards
@@ -28,7 +28,7 @@ public static void ParseTwoStrings(object o1, object o2, object o3, string s4, o
 	i2 = 0;
 	switch (o2)
 	{
-		case int i :					//Patterns
+		case int i :	//Patterns
 			i2 = i;
 			break;
 		case bool b  when b == true:	//Patterns
@@ -58,9 +58,9 @@ public class Operation
 {
 	private CalcOperation _operation;
 	private double _lastResult;
-	public Operation(CalcOperation operation) => _operation = operation;		//expression-bodied members
-	~Operation() => Console.WriteLine("finalize");								//expression-bodied members
-	public string OperationStringName => _operation.ToString();					//expression-bodied members
+	public Operation(CalcOperation operation) => _operation = operation;	//expression-bodied members
+	~Operation() => Console.WriteLine("finalize");	//expression-bodied members
+	public string OperationStringName => _operation.ToString();	//expression-bodied members
 	public void Deconstruct (out CalcOperation operation, out double lastResult)	//Deconstructors
 	{
 		operation = _operation;
@@ -71,7 +71,7 @@ public class Operation
 	{
 		double r = 0;		
 		var operands = (op1,op2);									
-		var namedDperands = (FirstOperand:op1,SecondOperand:op2);		//named tuples;
+		var namedDperands = (FirstOperand:op1,SecondOperand:op2);	//named tuples;
 		(int someOp1, int someOp2) = GenerateOperandsTuple(op1,op2);	//implicitly deconstruction pattern
 		
 		switch (_operation)
