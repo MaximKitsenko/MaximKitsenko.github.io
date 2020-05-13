@@ -3,13 +3,14 @@ layout: post
 title: C# 7.0 new features
 ---
 
-C# 7.0 introduced a lot of interesting stuff. Sometimes it is better to show than to say, so this post is attempt  to show these new features on a small application.
+C# 7.0 introduced a lot of interesting stuff. Sometimes it is better to show than to say, so this post is attempt to show these new features on a small application.
 This program is a small calculator, that can just divide numbers.
 
+```C#
     void Main()
-    {	
-    	var thousand = 1_000;	//Numeric literal
-    	var binary = 0b0000_0000_0000_0000_0000_1111;	//Numeric literal
+    {
+    	var thousand = 1_000; //Numeric literal
+    	var binary = 0b0000_0000_0000_0000_0000_1111; //Numeric literal
     	
     	ParseTwoStrings("8", "2", "3","Div", out int var1, out int var2, out _, out CalcOperation operation);	//Out variables and discards
     	var operationObj = new Operation(operation);
@@ -96,3 +97,4 @@ This program is a small calculator, that can just divide numbers.
     	Unknown,
     	Div,
     }
+```
