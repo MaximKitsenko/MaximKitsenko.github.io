@@ -1,4 +1,7 @@
-# Small hack for fast copying boilerplate code (when codegenerator is too much)
+---
+layout: post
+title: Small hack for fast copying boilerplate code (when codegenerator is too much)
+---
 
 ## Problem of copying boilerplate code
 
