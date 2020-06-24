@@ -81,4 +81,4 @@ Implementation of this idea satisfying requirements above is a small [script](ht
 - provide *find-replace* words and files paths to the script;
 - run script.
 
-This solution doesn't automate all operations. But sicne we implemented it in 15 minutes in addition source code shouldn't change often, so for us it looks like a good balance between time for building this script and full value codegenerating.
+This solution doesn't automate all operations. We implemented it in 15 minutes, in addition source code shouldn't change often, so for us it looks like a good balance between time for writing this script and full value codegenerating.
