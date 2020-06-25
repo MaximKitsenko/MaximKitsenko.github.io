@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Useful nunit console commands
+title: Cheat sheet - nunit-console useful commands
 ---
 
 ## What is nunit-console

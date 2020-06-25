@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Small hack for fast copying boilerplate code (when codegenerator is too much)
+title: Small hack - fast copying boilerplate code without codegenerator
 ---
 
 ## Problem of copying boilerplate code
 
-Have you ever faced with the situation when you need to implement some boilerplate code from time to time but for some reason code generator is not suitable for this task? In this article i'll show how we rapidly found a good balance, and solved this problem with help of a tiny script ( handmade alternative for **T4** ). You can skip this text, here the [script](https://github.com/MaximKitsenko/bonanza-scripts/blob/master/scripts/replace-in-files.ps1) which helped us.
+Have you ever faced with the situation when you need to write boilerplate code from time to time but for some reason code generator can't be used? In this article i'll show how we found a good balance, and solved this problem with help of a tiny script ( handmade alternative for **T4** ). You can skip this text, here the [script](https://github.com/MaximKitsenko/bonanza-scripts/blob/master/scripts/replace-in-files.ps1) which helped us.
 
 In the current project developers often face with the situation when there is need to copy boilerplate code. For example we have *TerritoriesRepository.cs*, *ITerritoriesRepository.cs*, *Territory.cs* and we want to add *SalesRepository.cs*, *ISalesRepository.cs*, *Sale.cs*. For all files the code structure will be the same except few places where variables/methods/parameters names have different prefix. For example look to the following code:
 
@@ -57,14 +57,26 @@ public class SalesRepository: ISalesRepository
 ... other files
 ```
 
-Naturally arising desire is to copy *TerritoriesRepository.cs*, *ITerritoriesRepository.cs*, *Territory.cs* to *SalesRepository.cs*, *ISalesRepository.cs*, *Sale.cs*, then casesensitive "ReplaceAll" 4 times on each of all 3 files:
+Naturally arising desire is to copy files
+
+- *TerritoriesRepository.cs*;
+- *ITerritoriesRepository.cs*;
+- *Territory.cs*.
+
+to these
+
+- *SalesRepository.cs*;
+- *ISalesRepository.cs*;
+- *Sale.cs*.
+
+then casesensitive "ReplaceAll" 4 times on each of all 3 files:
 
 - "Territory" to "Sale";
 - "territory" to "sale";
 - "Territories" to "Sales";
 - "territories" to "sales".
 
-For simplicity i described only 3 files, in reality we have 10 similar files for one domain entity. If you want to copy-paste 3 domain entities it may take some significant time even if you use hotkeys. This amount of time may be significant but still not enough to justify creating your own codegenerator. We want to automate creation of such boilerplate code ( **DRY**! ). These files shouldn't be changed, they are part proof concept project, so fullvalue codegenerator looks like overcomplicated solution. The problem is - we need light weight toolkit for copying boilerplate code.
+For simplicity i described only 3 files, in reality we have 10 similar files for one domain entity. If you want to copy-paste 3 domain entities it may take some significant time even if you use hotkeys. This amount of time may be significant but still not enough to justify creating your own codegenerator. We want to automate creation of such boilerplate code ( **DRY**! ). These files shouldn't be changed, they are part proof concept project, so fullvalue codegenerator looks like overcomplicated solution. The problem is - we need light weight toolkit for generating boilerplate code.
 
 ## Solution
 
@@ -77,8 +89,8 @@ The first idea was to use **Text Template Transformation Toolkit** (T4). There a
 
 Implementation of this idea satisfying requirements above is a small [script](https://github.com/MaximKitsenko/bonanza-scripts/blob/master/scripts/replace-in-files.ps1). We just took the idea of copying/replacing and automated these *ReplaceAll* operations. What we do:
 
-- we manually copy set of files with boilerplate code;
-- provide *find-replace* words and files paths to the script;
+- manually copy set of files with boilerplate code;
+- enter *find-replace* words and *files paths* to the script;
 - run script.
 
-This solution doesn't automate all operations. We implemented it in 15 minutes, in addition source code shouldn't change often, so for us it looks like a good balance between time for writing this script and full value codegenerating.
+This solution doesn't automate all operations. We implemented it in 15 minutes, in addition source code shouldn't change often, so for us it looks like a good balance between time for writing this script and time it allows to save.
