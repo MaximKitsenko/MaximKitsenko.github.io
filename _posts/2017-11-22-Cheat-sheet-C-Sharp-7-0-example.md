@@ -7,7 +7,7 @@ C# 7.0 introduced a lot of interesting stuff. Sometimes it is better to show tha
 This program is a small calculator, that can just divide numbers.
 Application repository is available at [github](https://github.com/MaximKitsenko/CSharpReference). If you think i missed some C# 7 feature fill free to create pull request.
 
-```C#
+```csharp
 static void Main(string[] args)
 {
     var thousand = 1_000;   // numeric literal 1000 (DEC)
@@ -87,7 +87,8 @@ public class Operation
                 break;
         }
 
-        Console.WriteLine($"Input Operands converted: {srcOperandsBackUp.Item1} => {operand1Double} and {OperandsBackUp.SecondOperand} => {operand2Double}");   // ItemN hidden getter
+        Console.WriteLine($@"Input Operand1 converted: {srcOperandsBackUp.Item1}=>{operand1Double}");    // ItemN hidden getter
+        Console.WriteLine($@"Input Operand2 converted: {OperandsBackUp.SecondOperand}=>{operand2Double}");
 
         return _lastResult = operationResult;
 
