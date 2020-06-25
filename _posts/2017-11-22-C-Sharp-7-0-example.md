@@ -1,97 +1,88 @@
 ---
 layout: post
-title: C# 7.0 new features
+title: C# 7.0 all new features in one application
 ---
 
 C# 7.0 introduced a lot of interesting stuff. Sometimes it is better to show than to say, so this post is attempt to show these new features on a small application.
 This program is a small calculator, that can just divide numbers.
+Application repository is available at [github](https://github.com/MaximKitsenko/CSharpReference). If you think i missed some C# 7 feature fill free to create pull request.
 
 ```C#
-    void Main()
+static void Main(string[] args)
+{
+    var thousand = 1_000;   // numeric literal 1000 (DEC)
+    var binary = 0b0000_0000_0000_0000_0000_0111;   // numeric literal 15 (DEC)    ParseTwoStrings(
+        "8",
+        "2",
+        "3",
+        "Div",
+        out int digit1,
+        out var digit2,
+        out _,    // out variables discard
+        out CalcOperation operation);    // out variables    var operationObj = new Operation(operation);
+    operationObj.Execute(digit1, digit2);
+    var (operationFromDeconstructor, lastResult) = operationObj;    // deconstructor
+    Console.WriteLine($"Last operation: {operationFromDeconstructor}, last result:{lastResult}");
+}public static void ParseTwoStrings(
+    object o1,
+    object o2,
+    object o3,
+    string s4,
+    out int i1,
+    out int i2,
+    out int i3,
+    out CalcOperation op)
+{
+    i1 = 0;
+    if (o1 is string s1)    // pattern matching with is
+        int.TryParse(s1, out i1);    i2 = 0;
+    switch (o2)
     {
-        var thousand = 1_000; //Numeric literal
-        var binary = 0b0000_0000_0000_0000_0000_1111; //Numeric literal
-
-        ParseTwoStrings("8", "2", "3","Div", out int var1, out int var2, out _, out CalcOperation operation);    //Out variables and discards
-        var operationObj = new Operation(operation);
-        operationObj.Execute(var1,var2, 0);
-        var (operationCopy,lastResult) = operationObj;    //Deconstructor
-        Console.WriteLine($"last operation: {operationCopy}, last result:{lastResult}");
+        case int i:    // pattern Matching
+            i2 = i;
+            break;
+        case bool b when b == true:    // pattern matching with when
+            i2 = 1;
+            break;
+        case string s2:
+            int.TryParse(s2, out i2);
+            break;
+        case null:
+            i2 = 0;
+            break;
     }
-
-    public static void ParseTwoStrings(object o1, object o2, object o3, string s4, out int i1, out int i2, out int i3, out CalcOperation op)
+    i2 = i2 != 0 ? i2 : throw new ArgumentException("can't be 0");    i3 = 0;
+    if (o3 is string s3)    // pattern matching with is
+        int.TryParse(s3, out i3);    if (!Enum.TryParse(s4, true, out op))
+        op = CalcOperation.Unknown;
+}public class Operation
+{
+    private CalcOperation _operation;
+    private double _lastResult;
+    public Operation(CalcOperation operation) => _operation = operation;    // expression-bodied members
+    ~Operation() => Console.WriteLine("finalize");    // expression-bodied members
+    public string OperationStringName => _operation.ToString();    // expression-bodied members
+    public void Deconstruct(out CalcOperation operation, out double lastResult)    // deconstructors
     {
-        if (o1 is string s1)    //Patterns
-            int.TryParse(s1, out i1);
-        else
-            i1 = 0;
-
-        i2 = 0;
-        switch (o2)
+        operation = _operation;
+        lastResult = _lastResult;
+    }    public double Execute(int operand1, int operand2)
+    {
+        var operationResult = 0D;
+        var srcOperandsBackUp = (FirstOperand: operand1, SecondOperand: operand2);    // named tuples;
+        (double operand1Double, double operand2Double) =
+            ConvertToDouble(srcOperandsBackUp.Item1, srcOperandsBackUp.SecondOperand);    // implicitlynstruction pattern        switch (_operation)
         {
-            case int i :    //Patterns
-                i2 = i;
+            case CalcOperation.Div:
+                operationResult = Div(operand1Double, operand2Double);
                 break;
-            case bool b  when b == true:    //Patterns
-                i2 = 0;
-                break;
-            case string s2:
-                int.TryParse(s2, out i2);
-                break;
-            case null:
-                i2 = 0;
-                break;
-        }
-
-        i2 = i2 != 0 ? i2 : throw new ArgumentException ("can't be 0");
-
-        if (o3 is string s3)
-            int.TryParse(s3, out i3);
-        else
-            i3 = 0;
-
-        if(!Enum.TryParse(s4, true, out op))
-            op = CalcOperation.Unknown;
+        }        Console.WriteLine($"Input Operands converted: {srcOperandsBackUp.Item1} => {operand1Double} andOperandsBackUp.SecondOperand} => {operand2Double}");   // ItemN hidden getter
+        return _lastResult = operationResult;
+        double Div(double a, double b) => a / b;    // Local methods
     }
-
-    public class Operation
-    {
-        private CalcOperation _operation;
-        private double _lastResult;
-        public Operation(CalcOperation operation) => _operation = operation;    //expression-bodied members
-        ~Operation() => Console.WriteLine("finalize");    //expression-bodied members
-        public string OperationStringName => _operation.ToString();    //expression-bodied members
-        public void Deconstruct (out CalcOperation operation, out double lastResult)    //Deconstructors
-        {
-            operation = _operation;
-            lastResult = _lastResult;
-        }
-
-        public double Execute(int op1, int op2, int op3)
-        {
-            double r = 0;
-            var operands = (op1,op2);
-            var namedDperands = (FirstOperand:op1,SecondOperand:op2);    //named tuples;
-            (int someOp1, int someOp2) = GenerateOperandsTuple(op1,op2);    //implicitly deconstruction pattern
-
-            switch (_operation)
-            {
-                case CalcOperation.Div:
-                    r = Div(op1,op2);
-                    break;
-            }
-
-            Console.WriteLine($"Operands: {operands.Item1} and {namedDperands.SecondOperand}");
-            return _lastResult = r;
-            int Div(int v1, int v2) => v1 / v2;    //Local methods
-        }
-    }
-
-    static (int oper1, int oper2) GenerateOperandsTuple(int o1, int o2) => (o1,o2);//return multiple values without resorting to out parameters
-
-    public enum CalcOperation
-    {
-        Unknown,
-        Div,
-    }
+}static (double operand1, double operand2) ConvertToDouble(int operand1, int operand2) => (operand1, operand2);    //rn multiple values without resorting to out parameterspublic enum CalcOperation
+{
+    Unknown,
+    Div,
+}
 ```
