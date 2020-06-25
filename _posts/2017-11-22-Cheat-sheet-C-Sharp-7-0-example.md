@@ -11,7 +11,8 @@ Application repository is available at [github](https://github.com/MaximKitsenko
 static void Main(string[] args)
 {
     var thousand = 1_000;   // numeric literal 1000 (DEC)
-    var binary = 0b0000_0000_0000_0000_0000_0111;   // numeric literal 15 (DEC)    ParseTwoStrings(
+    var binary = 0b0000_0000_0000_0000_0000_0111;   // numeric literal 15 (DEC)
+    ParseTwoStrings(
         "8",
         "2",
         "3",
@@ -87,8 +88,9 @@ public class Operation
                 break;
         }
 
-        Console.WriteLine($@"Input Operand1 converted: {srcOperandsBackUp.Item1}=>{operand1Double}");    // ItemN hidden getter
-        Console.WriteLine($@"Input Operand2 converted: {OperandsBackUp.SecondOperand}=>{operand2Double}");
+        Console.WriteLine($@"Input Operands converted:");
+        Console.WriteLine($@"Operand1: {srcOperandsBackUp.Item1} => {operand1Double}");    // ItemN hidden getter
+        Console.WriteLine($@"Operand2: {OperandsBackUp.SecondOperand} => {operand2Double}");
 
         return _lastResult = operationResult;
 
@@ -96,7 +98,8 @@ public class Operation
     }
 }
 
-static (double operand1, double operand2) ConvertToDouble(int operand1, int operand2) => (operand1, operand2);    // return multiple values without resorting to out parameters
+static (double operand1, double operand2) ConvertToDouble(int operand1, int operand2) =>
+            (operand1, operand2); // return multiple values without resorting to out parameters
 
 public enum CalcOperation
 {
