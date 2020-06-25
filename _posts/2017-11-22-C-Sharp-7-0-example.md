@@ -19,7 +19,8 @@ static void Main(string[] args)
         out int digit1,
         out var digit2,
         out _,    // out variables discard
-        out CalcOperation operation);    // out variables    var operationObj = new Operation(operation);
+        out CalcOperation operation);    // out variables
+    var operationObj = new Operation(operation);
     operationObj.Execute(digit1, digit2);
     var (operationFromDeconstructor, lastResult) = operationObj;    // deconstructor
     Console.WriteLine($"Last operation: {operationFromDeconstructor}, last result:{lastResult}");
@@ -70,23 +71,31 @@ public class Operation
     {
         operation = _operation;
         lastResult = _lastResult;
-    }    public double Execute(int operand1, int operand2)
+    }
+
+    public double Execute(int operand1, int operand2)
     {
         var operationResult = 0D;
         var srcOperandsBackUp = (FirstOperand: operand1, SecondOperand: operand2);    // named tuples;
         (double operand1Double, double operand2Double) =
-            ConvertToDouble(srcOperandsBackUp.Item1, srcOperandsBackUp.SecondOperand);    // implicitlynstruction pattern        switch (_operation)
+            ConvertToDouble(srcOperandsBackUp.Item1, srcOperandsBackUp.SecondOperand);    // implicitlynstruction pattern
+
+        switch (_operation)
         {
             case CalcOperation.Div:
                 operationResult = Div(operand1Double, operand2Double);
                 break;
-        }        Console.WriteLine($"Input Operands converted: {srcOperandsBackUp.Item1} => {operand1Double} andOperandsBackUp.SecondOperand} => {operand2Double}");   // ItemN hidden getter
+        }
+
+        Console.WriteLine($"Input Operands converted: {srcOperandsBackUp.Item1} => {operand1Double} and {OperandsBackUp.SecondOperand} => {operand2Double}");   // ItemN hidden getter
+
         return _lastResult = operationResult;
+
         double Div(double a, double b) => a / b;    // Local methods
     }
 }
 
-static (double operand1, double operand2) ConvertToDouble(int operand1, int operand2) => (operand1, operand2);    //rn multiple values without resorting to out parameters
+static (double operand1, double operand2) ConvertToDouble(int operand1, int operand2) => (operand1, operand2);    // return multiple values without resorting to out parameters
 
 public enum CalcOperation
 {
