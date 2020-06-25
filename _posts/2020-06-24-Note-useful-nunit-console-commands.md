@@ -16,3 +16,9 @@ All examples bellow are used from nunit console path, on my machine it is `c:\Pr
 ```bash
 > nunit3-console.exe "C:\max-projects\filmtrack\avails\FilmTrack.Avails.Core.Tests\bin\Debug\FilmTrack.Avails.Core.Tests.dll" --where "test =~ GivenTh"
 ```
+
+> nunit3-console.exe "C:\max-projects\filmtrack\avails\FilmTrack.Avails.Core.Tests\bin\Debug\FilmTrack.Avails.Core.Tests.dll" --where "test =~ GivenTh"
+
+```bash
+nunit3-console.exe "C:\max-projects\filmtrack\avails\FilmTrack.Avails.Core.Tests\bin\Debug\FilmTrack.Avails.Core.Tests.dll" --where "test =~ GivenTh"
+```
