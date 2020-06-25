@@ -1,6 +1,6 @@
 ---
 layout: post
-title: C# 7.0 all new features in one application
+title: Cheat sheet - C# 7.0 all new features in one application
 ---
 
 C# 7.0 introduced a lot of interesting stuff. Sometimes it is better to show than to say, so this post is attempt to show these new features on a small application.
@@ -23,7 +23,9 @@ static void Main(string[] args)
     operationObj.Execute(digit1, digit2);
     var (operationFromDeconstructor, lastResult) = operationObj;    // deconstructor
     Console.WriteLine($"Last operation: {operationFromDeconstructor}, last result:{lastResult}");
-}public static void ParseTwoStrings(
+}
+
+public static void ParseTwoStrings(
     object o1,
     object o2,
     object o3,
@@ -55,7 +57,9 @@ static void Main(string[] args)
     if (o3 is string s3)    // pattern matching with is
         int.TryParse(s3, out i3);    if (!Enum.TryParse(s4, true, out op))
         op = CalcOperation.Unknown;
-}public class Operation
+}
+
+public class Operation
 {
     private CalcOperation _operation;
     private double _lastResult;
@@ -80,7 +84,11 @@ static void Main(string[] args)
         return _lastResult = operationResult;
         double Div(double a, double b) => a / b;    // Local methods
     }
-}static (double operand1, double operand2) ConvertToDouble(int operand1, int operand2) => (operand1, operand2);    //rn multiple values without resorting to out parameterspublic enum CalcOperation
+}
+
+static (double operand1, double operand2) ConvertToDouble(int operand1, int operand2) => (operand1, operand2);    //rn multiple values without resorting to out parameters
+
+public enum CalcOperation
 {
     Unknown,
     Div,
