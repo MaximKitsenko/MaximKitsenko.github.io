@@ -20,9 +20,11 @@ Selectively **checkout** file from stash:
 ## Patch
 
 Create **patch** from some commit (that commit excluded). (commits count +1 files will be created):
+
 ```git format-patch bd5f6f16ffab0b88ca58833bb97aadefdf90c083 >devvm.patch```
 
 Apply **patch** (will search all patches and apply commits from them)
+
 ```git am *.patch```
 
 Preview **patch**:
