@@ -13,4 +13,6 @@ All examples bellow are used from nunit console path, on my machine it is `c:\Pr
 
 ### Run all tests which contains 'GivenTh' in their name
 
-> nunit3-console.exe "C:\max-projects\filmtrack\avails\FilmTrack.Avails.Core.Tests\bin\Debug\FilmTrack.Avails.Core.Tests.dll" --where "test =~ GivenTh"
+```pwsh
+nunit3-console.exe "C:\max-projects\filmtrack\avails\FilmTrack.Avails.Core.Tests\bin\Debug\FilmTrack.Avails.Core.Tests.dll" --where "test =~ GivenTh"
+```
