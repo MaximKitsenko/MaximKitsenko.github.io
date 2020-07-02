@@ -22,6 +22,3 @@ nunit3-console.exe "C:\max-projects\filmtrack\avails\FilmTrack.Avails.Core.Tests
 ```pwsh
 nunit3-console.exe "C:\max-projects\filmtrack\avails\FilmTrack.Avails.Core.Tests\bin\Debug\FilmTrack.Avails.Core.Tests.dll" --out "C:\max-projects\filmtrack\TestsResult.txt"
 ```
-
-
-

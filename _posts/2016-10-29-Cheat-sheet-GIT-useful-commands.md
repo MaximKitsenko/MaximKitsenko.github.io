@@ -50,3 +50,16 @@ Apply **patch** (Don’t apply changes to files matching the given path pattern)
 **Alias** adding:
 
 ```git config --global alias.co checkout```
+
+## Renaming
+
+**Rename** remote branch:
+
+```bash
+git push origin :bug-fix/one-custom-section bug-fix/PB-426-one-custom-section
+```
+
+```
+ - [deleted]               bug-fix/one-custom-section
+ * [new branch]            bug-fix/PB-426-Remove-duplicate-custom-sections-from-solution -> bug-fix/PB-426-Remove-duplicate-custom-sections-from-solution
+```
