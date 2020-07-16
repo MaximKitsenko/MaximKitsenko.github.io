@@ -13,6 +13,8 @@ For those who uses Git (including me) i started to collect useful commands. In t
 
 ### Stash specific file
 
+Keep in mind index should be clean, otherwise files added to index will be added.
+
 ```sh
 git stash push -m projectAssignment FilmTrack.Avails.Core.Tests/OdataWebApiTests/ContractCardProjectAssignmentsControllerBulkRemoveProjectsTests.cs
 ```
