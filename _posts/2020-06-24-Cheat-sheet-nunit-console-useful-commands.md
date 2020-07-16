@@ -9,7 +9,7 @@ title: Cheat sheet - nunit-console useful commands
 
 ## Nunit-console commands
 
-All examples bellow are used from nunit console path, on my machine it is `c:\Program Files (x86)\NUnit.org\nunit-console>`
+All examples bellow are used from nunit console path, on my machine it is `c:\Program Files (x86)\NUnit.org\nunit-console`
 
 ### Run all tests which contains 'GivenTh' in their name
 

@@ -11,6 +11,12 @@ For those who uses Git (including me) i started to collect useful commands. In t
 
 ```git stash -u```
 
+### Stash specific file
+
+```sh
+git stash push -m projectAssignment FilmTrack.Avails.Core.Tests/OdataWebApiTests/ContractCardProjectAssignmentsControllerBulkRemoveProjectsTests.cs
+```
+
 ## Checkout
 
 Selectively **checkout** file from stash:
