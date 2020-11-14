@@ -18,7 +18,7 @@ run already downloaded image:
 
 Important thing,- `localhost:1433` - is oncorrect, use `localhost,1433` in MSSMS to connect to `localhost` server, port `1433`.
 
-![_config.yml]({{ site.baseurl }}/images/2020-10-22-Cheat-sheet-docker/1.png)
+![_config.yml]({{ site.baseurl }}/images/2020-10-22-Cheat-sheet-download-and-run-mssql-docker/1.png)
 
 ## Stop
 
