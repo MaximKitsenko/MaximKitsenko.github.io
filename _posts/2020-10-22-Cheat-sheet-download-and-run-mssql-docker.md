@@ -14,7 +14,7 @@ run already downloaded image:
 
 `docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=yourStrong(!)Password" -p 1433:1433 -d 5ced205176bc` where `5ced205176bc` is image hash
 
-## Connect to the server via management studio
+## Connect to server via management studio
 
 Important thing,- `localhost:1433` - is oncorrect, use `localhost,1433` in MSSMS to connect to `localhost` server, port `1433`.
 
