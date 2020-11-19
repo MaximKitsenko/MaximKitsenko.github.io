@@ -32,7 +32,7 @@ stating that you expected this exception, you understand why it occurred, and yo
 
 - **Use Reliability Monitor.** To start Reliability Monitor, open the Windows Control Panel and search for “reliability history”
 
-![_config.yml]({{ site.baseurl }}/images/2019-11-19/1.png)
+  ![_config.yml]({{ site.baseurl }}/images/2019-11-19/1.png)
 
 - **Design: Base Class or Interface?**
   - IS-A vs. CAN-DO relationship A type can inherit only one implementation. If the derived type can’t claim an IS-A relationship with the base type, don’t use a base type; use an interface. Interfaces imply a CAN-DO relationship.
