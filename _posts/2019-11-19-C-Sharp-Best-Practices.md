@@ -40,7 +40,7 @@ stating that you expected this exception, you understand why it occurred, and yo
   - **Ease of use.** It’s generally easier for you as a developer to define a new type derived from a base type than to implement all of the methods of an interface.
 
   - **Consistent implementation.** No matter how well an interface contract is documented, it’s very unlikely that everyone will implement the contract 100 percent correctly. By providing a base type with a good default implementation, you start off using a type that works and is well tested; you can then modify parts that need modification.
-  - Versioning If you add a method to the base type, the derived type inherits the new method, you start off using a type that works, and the user’s source code doesn’t even have to be recompiled. Adding a new member to an interface forces the inheritor of the interface to change its source code and recompile.
+  - **Versioning.** If you add a method to the base type, the derived type inherits the new method, you start off using a type that works, and the user’s source code doesn’t even have to be recompiled. Adding a new member to an interface forces the inheritor of the interface to change its source code and recompile.
 
   You can actually do both: define an interface and provide a
 base class that implements the interface. For example, the FCL defines the `IComparer<in T>` interface and any type can choose to implement this interface. In addition, the FCL provides an abstract base class, `Comparer<T>`, which implements this interface and provides a default implementation for the non-generic `IComparer`’s Compare method. Having both an interface definition and a base class offers great flexibility because developers can now choose whichever they prefer.
