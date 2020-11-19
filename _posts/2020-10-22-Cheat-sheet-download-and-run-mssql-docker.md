@@ -1,4 +1,7 @@
-# MS SQL Docker Cheat Sheet
+---
+layout: post
+title: Cheat sheet - MS SQL Docker
+---
 
 ## Download image and run
 
