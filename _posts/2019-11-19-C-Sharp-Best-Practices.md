@@ -1,4 +1,7 @@
-# Best practices
+---
+layout: post
+title: C# Best practices
+---
 
 - **Do not rename parameters.** Be careful not to rename parameter variables because any callers who are passing arguments by parameter name will have to modify their code.
 
