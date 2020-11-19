@@ -9,11 +9,11 @@ Today i want to show  *Jmeter* and how it can be used. This article doesn't cove
 **The problem.**
 Sometimes queues in our the server are overloaded and users should wait a lot of time to see when their commands will be processed. Since the issue occurs only when the system is overloaded, after bug-fix will be published, we need to simulate overloading for testing purpose. Here occurs two questions:
 
-1. How to emulate overloading easily ?	
+1. How to emulate overloading easily ?
 2. How to check that user's commands will be processed in time?.
 
 **Solution.**
-There are a lot of tools capable to emulate high user activity and make functional testing. I want to consider one og the - Jmeter. 
+There are a lot of tools capable to emulate high user activity and make functional testing. I want to consider one og the - Jmeter.
 
 **What is Jmeter?**
 Jmeter is free and open source server performance testing tool. Written on Java (Swing Java API) it supports multithreading, it may be used to simulate a heavy load, analyse test results, make a graphical analysis of performance, test your server behavior under heavy concurrent load. Also Jmeter provides very easy and configurable way to do many kinds of testing. With help of Jmeter you can make some kinds of testing:

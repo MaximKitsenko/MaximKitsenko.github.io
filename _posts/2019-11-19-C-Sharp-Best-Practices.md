@@ -33,3 +33,5 @@ stating that you expected this exception, you understand why it occurred, and yo
 - **Reliability Monitor.** To start Reliability Monitor, open the Windows Control Panel and search for “reliability history”
 
 ![_config.yml]({{ site.baseurl }}/images/2019-11-19/1.png)
+
+*inspired by CLR via C#...*
