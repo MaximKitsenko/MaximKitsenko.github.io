@@ -17,18 +17,18 @@ type such as `ICollection<T>` or `IList<T>`. On the flip side, it is usually bes
 - **Don’t Catch Everything.** When you catch an exception, you’re
 stating that you expected this exception, you understand why it occurred, and you know how to deal with it. In other words, you’re defining a policy for the application.
 
-```javascript
-try {
- // try to execute code that the programmer knows might fail...
-}
-catch (Exception) {
- ...
-}
-```
+  ```javascript
+  try {
+   // try to execute code that the programmer knows might fail...
+  }
+  catch (Exception) {
+   ...
+  }
+  ```
 
-This code indicates that it was expecting any and all exceptions and knows how to recover from any and all situations. How can this possibly be? It is OK to catch System.Exception and execute some code inside the catch block’s braces as long as you re-throw the exception at the bottom of that code. Catching System.Exception and swallowing the exception (not re-throwing it) should never be done because it hides failures that allow the application to run with unpredictable results and potential security vulnerabilities.
+  This code indicates that it was expecting any and all exceptions and knows how to recover from any and all situations. How can this possibly be? It is OK to catch System.Exception and execute some code inside the catch block’s braces as long as you re-throw the exception at the bottom of that code. Catching System.Exception and swallowing the exception (not re-throwing it) should never be done because it hides failures that allow the application to run with unpredictable results and potential security vulnerabilities.
 
-- **Class library developers should not even think about unhandled exceptions. Only application developers need to concern themselves with unhandled exceptions** , and the application should have a policy in place for dealing with unhandled exceptions. Microsoft actually recommends that application developers just accept the CLR’s default policy. That is, when an application gets an unhandled exception, Windows writes an entry to the system’s event log.
+- **Class library developers should not even think about unhandled exceptions. Only application developers need to concern themselves with unhandled exceptions**, and the application should have a policy in place for dealing with unhandled exceptions. Microsoft actually recommends that application developers just accept the CLR’s default policy. That is, when an application gets an unhandled exception, Windows writes an entry to the system’s event log.
 
 - **Reliability Monitor.** To start Reliability Monitor, open the Windows Control Panel and search for “reliability history”
 
