@@ -27,7 +27,7 @@ stating that you expected this exception, you understand why it occurred, and yo
 
 - **Class library developers should not think about unhandled exceptions. Only application developers need to concern themselves with unhandled exceptions**, and the application should have a policy in place for dealing with unhandled exceptions. Microsoft actually recommends that application developers just accept the CLR’s default policy. That is, when an application gets an unhandled exception, Windows writes an entry to the system’s event log.
 
-- **Use Reliability Monitor to see unhandled exceptions.** To start Reliability Monitor, open the Windows Control Panel and search for “reliability history”
+- **Use Reliability Monitor to see unhandled exceptions.** To start Reliability Monitor, open the Windows Control Panel and search for “reliability history” (or `win+r` -> `perfmon /rel`)
 
   ![_config.yml]({{ site.baseurl }}/images/2019-11-19/1.png)
 
