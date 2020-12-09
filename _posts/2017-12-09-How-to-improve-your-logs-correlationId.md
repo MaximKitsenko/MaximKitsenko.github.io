@@ -3,9 +3,9 @@ layout: post
 title: How to improve your logging with CorrelationId
 ---
 
-Important part of any application is logging. Readable log,  which can be easily searched, significantly helps to solve problems in the system and can save a lot of time and money.
+Important part of any application is logging. Readable log,  which can be easily searched, significantly helps to solve problems, can save a lot of time and money.
 
-Few weeks ago we decided to improve our logging system for our integration microservice. Integration is part of the system which makes a lot of API calls for 3d-party systems. And one initiating request can end up generating multiple more downstream service calls.
+Few weeks ago in `SkuVault`we decided to improve our logging system for our integration microservice. Integration is part of the system which makes a lot of API calls for 3d-party systems. And one initiating request can end up generating multiple more downstream service calls.
 
 ![_config.yml]({{ site.baseurl }}/images/2017-12-09-How-to-improve-your-logs-correlationId/1.png)
 
