@@ -53,6 +53,8 @@ Apply **patch** (Don’t apply changes to files matching the given path pattern)
 
 ```git log -S "magentoService.GetProductsAsync" --oneline```
 
+```git log -S ToObservable --source --all```
+
 ## Alias
 
 **Alias** adding:
