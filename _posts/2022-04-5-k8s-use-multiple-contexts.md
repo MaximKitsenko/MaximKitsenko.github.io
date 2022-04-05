@@ -13,7 +13,7 @@ Copy-Item "C:\Users\macro\.kube\config" -Destination "C:\Users\macro\.kube\confi
 2. Set environment variable with src configs pathes:
 ```
 $Env:KUBECONFIG="C:\Users\macro\.kube\new-env-k8s.yaml;C:\Users\macro\.kube\old-env-k8s.yaml"
-// I dont know why but yhis doesn't work
+// I dont know why but this doesn't work
 //$Env:KUBECONFIG="C:\Users\macro\.kube\old-env-k8s.yaml;C:\Users\macro\.kube\new-env-k8s.yaml"
 ```
 
@@ -27,14 +27,14 @@ $ENV:KUBECONFIG
 kubectl config view --flatten > "C:\Users\macro\.kube\config-merged"
 ```
 
-Another ways to do it:
-```
-kubectl config view --merge --flatten | Out-File "C:\Users\macro\.kube\newconfig_merge"
-```
-or
-```
-kubectl config view  --raw > "C:\Users\macro\.kube\newconfig_raw"
-```
+    1. Another way to do it:
+    ```
+    kubectl config view --merge --flatten | Out-File "C:\Users\macro\.kube\newconfig_merge"
+    ```
+    2. or
+    ```
+    kubectl config view  --raw > "C:\Users\macro\.kube\newconfig_raw"
+    ```
 
 5. Make sure output file contains configurations from both clusters:
 ```
