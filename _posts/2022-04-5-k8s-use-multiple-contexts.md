@@ -58,3 +58,8 @@ $Env:KUBECONFIG="C:\Users\macro\.kube\old-env-k8s.yaml;C:\Users\macro\.kube\new-
 ```
 
 Also if your files are not in `.kube\` try to put them here.
+
+## Other useful commands
+>kubectl config current-context
+>kubectl config get-contexts
+>kubectl edit deployment api-app
