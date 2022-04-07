@@ -1,6 +1,6 @@
 # Use Multiple configs for k8s
 
-Few weeks ago we decide to migrate to new cloud provider, since our services are deployed on k8s we faced with migration from one k8s kluster to another. The first thing after creating new cluster was configuring kubectl to work with both clusters. It turned out it was not so easy. Here i will describe basic steps and few pitfalls.
+Few weeks ago we decided to migrate our application to the new cloud provider, since our services are deployed on k8s we faced with migration from one k8s kluster to another. The first thing after creating new cluster was configuring kubectl to work with both clusters. It turned out it was not so easy. Here i will describe basic steps and few pitfalls.
 
 The following instructions are for `Windows` but they should be the same for `Linux`, except syntax.
 
@@ -60,6 +60,13 @@ $Env:KUBECONFIG="C:\Users\macro\.kube\old-env-k8s.yaml;C:\Users\macro\.kube\new-
 Also if your files are not in `.kube\` try to put them here.
 
 ## Other useful commands
->kubectl config current-context
->kubectl config get-contexts
->kubectl edit deployment api-app
+
+```
+kubectl config get-contexts
+
+kubectl config current-context
+
+kubectl config view 
+
+kubectl config use-context do-ams3-must-k8s
+```
