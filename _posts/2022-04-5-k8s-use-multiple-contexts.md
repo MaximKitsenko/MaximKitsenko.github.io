@@ -53,9 +53,9 @@ Copy-Item "C:\Users\macro\.kube\config-merged" -Destination "C:\Users\macro\.kub
 ## Pitfalls
 
 if your `config-merged` doesn't include both k8s configs, try to reorder files in:
-```
+~~~
 $Env:KUBECONFIG="C:\Users\macro\.kube\old-env-k8s.yaml;C:\Users\macro\.kube\new-env-k8s.yaml"
-```
+~~~
 
 Also if your files are not in `.kube\` try to put them here.
 
