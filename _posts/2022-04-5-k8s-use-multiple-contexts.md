@@ -61,7 +61,7 @@ Also if your files are not in `.kube\` try to put them here.
 
 ## Other useful commands
 
-```
+```Shell
 kubectl config get-contexts
 
 kubectl config current-context
