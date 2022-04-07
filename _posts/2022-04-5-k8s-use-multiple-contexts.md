@@ -37,7 +37,7 @@ kubectl config view --flatten > "C:\Users\macro\.kube\config-merged"
     ```
 
 5. Make sure output file contains configurations from both clusters:
-```
+```Bash
 kubectl --kubeconfig="C:\Users\macro\.kube\config-merged" config get-clusters
 ```
 
@@ -46,7 +46,7 @@ You should see somethnig like this:
 ![_config.yml]({{ site.baseurl }}/images/2022-04-5-k8s-use-multiple-contexts\2022-04-05_14-54-25-blured.png)
 
 6. The last step - replace current config with new one:
-```
+```Cmd
 Copy-Item "C:\Users\macro\.kube\config-merged" -Destination "C:\Users\macro\.kube\config"
 ```
 
