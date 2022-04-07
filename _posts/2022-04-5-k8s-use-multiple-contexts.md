@@ -68,5 +68,5 @@ kubectl config current-context
 
 kubectl config view 
 
-kubectl config use-context do-ams3-must-k8s
+kubectl config use-context do-ams3-company-k8s
 ```
