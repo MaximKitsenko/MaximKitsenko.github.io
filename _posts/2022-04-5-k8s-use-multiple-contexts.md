@@ -69,4 +69,6 @@ kubectl config current-context
 kubectl config view 
 
 kubectl config use-context do-ams3-company-k8s
+
+kubectl edit deployment api-loss-classifier
 ```
