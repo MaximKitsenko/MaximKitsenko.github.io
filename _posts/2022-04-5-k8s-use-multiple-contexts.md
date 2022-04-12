@@ -78,4 +78,6 @@ kubectl scale deployment loss-classifier --replicas=0 -n default
 
 kubectl get pods -n default
 
+kubectl  port-forward loss-classifier-7b5bd65d94-wpmd7 8080:8080
+
 ```
