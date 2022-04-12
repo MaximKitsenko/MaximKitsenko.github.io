@@ -71,4 +71,11 @@ kubectl config view
 kubectl config use-context do-ams3-company-k8s
 
 kubectl edit deployment api-loss-classifier
+
+kubectl edit deployment loss-classifier
+
+kubectl scale deployment loss-classifier --replicas=0 -n default
+
+kubectl get pods -n default
+
 ```
