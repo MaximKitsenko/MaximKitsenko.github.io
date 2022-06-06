@@ -6,7 +6,7 @@ The following instructions are for `Windows` but they should be the same for `Li
 
 
 1. Create backup of an old config:
-```
+```C#
 Copy-Item "C:\Users\macro\.kube\config" -Destination "C:\Users\macro\.kube\config_backup"
 ```
 
@@ -23,14 +23,14 @@ $ENV:KUBECONFIG
 ```
 
 4. Generate result config which contains both clusters:
-```JavaScript
+```C#
 kubectl config view --flatten > "C:\Users\macro\.kube\config-merged"
 ```
 
     1. Another way to do it:
-    `
+    ```C#
     kubectl config view --merge --flatten | Out-File "C:\Users\macro\.kube\newconfig_merge"
-    `
+    ```
     2. or
     ```
     kubectl config view  --raw > "C:\Users\macro\.kube\newconfig_raw"
