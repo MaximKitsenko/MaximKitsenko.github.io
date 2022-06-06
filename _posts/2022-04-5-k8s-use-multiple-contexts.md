@@ -7,33 +7,45 @@ The following instructions are for `Windows` but they should be the same for `Li
 
 1. Create backup of an old config:
 ```C#
+
 Copy-Item "C:\Users\macro\.kube\config" -Destination "C:\Users\macro\.kube\config_backup"
+
 ```
 
 2. Set environment variable with src configs pathes:
-```sh
+```C#
+
 $Env:KUBECONFIG="C:\Users\macro\.kube\new-env-k8s.yaml;C:\Users\macro\.kube\old-env-k8s.yaml"
 // I dont know why but this doesn't work
 //$Env:KUBECONFIG="C:\Users\macro\.kube\old-env-k8s.yaml;C:\Users\macro\.kube\new-env-k8s.yaml"
+
 ```
 
 3. Make sure env variable contains correct value:
 ```C#
+
 $ENV:KUBECONFIG
+
 ```
 
 4. Generate result config which contains both clusters:
 ```C#
+
 kubectl config view --flatten > "C:\Users\macro\.kube\config-merged"
+
 ```
 
     1. Another way to do it:
     ```C#
+    
     kubectl config view --merge --flatten | Out-File "C:\Users\macro\.kube\newconfig_merge"
+    
     ```
     2. or
-    ```
+    ```C#
+    
     kubectl config view  --raw > "C:\Users\macro\.kube\newconfig_raw"
+    
     ```
 
 5. Make sure output file contains configurations from both clusters:
