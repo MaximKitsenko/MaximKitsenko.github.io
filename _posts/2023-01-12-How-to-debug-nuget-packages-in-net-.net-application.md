@@ -1,4 +1,3 @@
-# How to debug nuget packages in .net application
 
 Few days ago, when i was debugging our application ( which was written with .net), i faced with issue, when the bug was hidden in the nuget package. It was required to debug the code inside the nuget package. In this post i will share my experience with debugging the code from the nugget package.
 
